@@ -28,8 +28,11 @@ func main() {
 		line := sc.Text()
 		words := strings.Fields(line)
 		for _, word := range words {
-			cleaned := strings.ToLower(strings.Trim(word, ".,!?\"'():;"))
-			wordFreq[cleaned]++
+			punctuation := ".,!?\"'():;"
+			cleaned := strings.ToLower(strings.Trim(word, punctuation))
+			if cleaned != "" {
+				wordFreq[cleaned]++
+			}
 		}
 	}
 
